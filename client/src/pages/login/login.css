@@ -1,0 +1,55 @@
+.login {
+    align-items: center;
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.2)),
+    url("https://img.lovepik.com/bg/20240205/Nature-inspired-Handwriting-in-an-Open-Notebook-with-Trees-in_3174777_wh860.jpg!/fw/860");
+    background-size: cover;
+}
+
+.loginTitle{
+    font-size : 50px;
+}
+
+.loginForm{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginForm > label {
+    margin : 10px 0;
+}
+
+.loginInput{
+    padding : 10px;
+    background-color: white;
+    border : none;
+}
+
+.loginButton{
+    margin-top : 20px;
+    cursor: pointer;
+    background-color: lightcoral;
+    border: none;
+    color: white;
+    border-radius: 30px;
+    padding: 10px;
+    margin-bottom: 1px;
+}
+
+.loginRegisterButton{
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: teal;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+}
