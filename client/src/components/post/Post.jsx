@@ -1,38 +1,25 @@
 import "./post.css";
+import {Link} from "react-router-dom"
 
-export default function Post() {
+export default function Post({post}) {
   return (
     <div className="post">
-      <div className="postImgContainer">
-        <img
-          className="postImg"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYscfUBUbqwGd_DHVhG-ZjCOD7MUpxp4uhNe7toUg4ug&s"
-          alt=""
-        />
-      </div>
+      {post.photo && (<img className="postImg" src = {post.photo} alt = "" />)}
       <div className="postInfo">
         <div className="postCats">
-          <span className="postCat">Music</span>
-          <span className="postCat">Life</span>
+          {post.categories?.map((c) => (
+            <span className="postCat">{c.name}</span>
+          ))}
         </div>
-        <span className="postTitle">
-          place on the page, and the order in which they want peace.
-        </span>
+        <Link to = {`/post/${post._id}`} className = "link">
+          <span className="postTitle"> {post.title} </span>
+        </Link>
+        
         <hr />
-        <span className="postDate">1 hour ago</span>
+        <span className="postDate">{new Date(post.createdAt).toDateString()}</span>
       </div>
-      <p className="postDesc">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium
-        doloribus quae ducimus maxime, minus saepe excepturi labore sequi optio,
-        ipsam beatae deleniti neque, quasi debitis harum possimus ea ipsa
-        consequuntur? Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-        Laudantium doloribus quae ducimus maxime, minus saepe excepturi labore
-        sequi optio, ipsam beatae deleniti neque, quasi debitis harum possimus
-        ea ipsa consequuntur? Lorem ipsum dolor, sit amet consectetur adipisicing
-        elit. Laudantium doloribus quae ducimus maxime, minus saepe excepturi
-        labore sequi optio, ipsam beatae deleniti neque, quasi debitis harum
-        possimus ea ipsa consequuntur?
-      </p>
+      <p className="postDesc">{post.desc}</p>
     </div>
   );
 }
+

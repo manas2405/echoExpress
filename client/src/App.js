@@ -9,7 +9,7 @@ import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 
 function App() {
-  const user = true;
+  const user = false;
 
   return (
     <Router>
@@ -27,3 +27,5 @@ function App() {
 }
 
 export default App;
+
+

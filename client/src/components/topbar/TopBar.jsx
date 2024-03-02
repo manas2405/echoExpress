@@ -3,7 +3,7 @@ import "./topbar.css"
 import {Link} from "react-router-dom"
 
 export default function TopBar() {
-    const user = true;
+    const user = false;
     return <div className = "top" > 
         <div className = "topLeft">
             <i className="topIcon fa-brands fa-square-facebook"></i>

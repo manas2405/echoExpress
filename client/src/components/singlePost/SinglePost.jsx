@@ -1,13 +1,32 @@
+import { Link, useLocation } from "react-router-dom"
+import { useEffect, useState } from "react";
 import "./singlePost.css"
+import axios from 'axios';
 
 export default function SinglePost() {
+  const location = useLocation();
+  const path = location.pathname.split("/")[2];
+  const [post, setPost] = useState({});
+
+  useEffect(() => {
+    const getPost = async() => {
+      const res = await axios.get("/posts/" + path);
+      setPost(res.data);
+    };
+    getPost();
+  }, [path]);
+
   return (
     <div className = "singlePost">
       <div className = "singlePostWrapper">
-        <img src = "https://plus.unsplash.com/premium_photo-1667311649552-2cfab63bdcfc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bmF0dXJlJTIwaW1hZ2VzfGVufDB8fDB8fHww" alt = "" className = "singlePostImg"
-        />
+        {post.photo && (
+          <img src = {post.photo} 
+            alt = "" 
+            className = "singlePostImg"
+          />
+        )}
         <h1 className = "singlePostTitle">
-          Lorem ipsum dolor sit amet.
+          {post.title}
           <div className="singlePostEdit">
             <i className ="singlePostIcon fa-regular fa-pen-to-square"></i>
             <i className="singlePostIcon fa-solid fa-trash-can"></i>
@@ -15,27 +34,17 @@ export default function SinglePost() {
         </h1>
 
         <div className = "singlePostInfo">
-          <span className = "singlePostAuthor">Author : <b>Safak</b></span>
-          <span className = "singlePostAuthor">1 hour ago</span>
+          <span className = "singlePostAuthor"> Author : 
+            <Link to = {`/?user=${post.username}`} className = "link">
+              <b>{post.username}</b> 
+            </Link>
+          </span>
+          <span className = "singlePostDate"> {new Date(post.createdAt).toDateString()} </span>
         </div>
-        <p className = "singlePostDesc"> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Ex iusto alias expedita cum. Non molestias rem, 
-          laudantium repudiandae at id obcaecati neque consequuntur, 
-          quasi in magnam voluptatum ipsa nam perferendis!
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Ex iusto alias expedita cum. Non molestias rem, 
-          laudantium repudiandae at id obcaecati neque consequuntur, 
-          quasi in magnam voluptatum ipsa nam perferendis!
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Ex iusto alias expedita cum. Non molestias rem, 
-          laudantium repudiandae at id obcaecati neque consequuntur, 
-          quasi in magnam voluptatum ipsa nam perferendis!
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Ex iusto alias expedita cum. Non molestias rem, 
-          laudantium repudiandae at id obcaecati neque consequuntur, 
-          quasi in magnam voluptatum ipsa nam perferendis!</p>
+        <p className = "singlePostDesc">
+          {post.desc}
+        </p>
       </div>
     </div>
   )
 }
-
