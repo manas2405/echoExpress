@@ -24,7 +24,7 @@ const storage = multer.diskStorage({
     },
 
     filename : (req, file, cb) => {
-        cb(null, "aikshitIcar.jpg");
+        cb(null, req.body.name);
     },
 })
 
@@ -37,7 +37,6 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
-
 
 console.log("hello");
 

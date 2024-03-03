@@ -16,6 +16,7 @@ export default function Write() {
             title,
             desc,
         };
+        
         if(file) {
             const data = new FormData();
             const filename = Date.now() + file.name;
@@ -60,3 +61,4 @@ export default function Write() {
     </div>
   )
 }
+
