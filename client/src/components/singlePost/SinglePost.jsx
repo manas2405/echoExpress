@@ -35,7 +35,7 @@ export default function SinglePost() {
   const handleUpdate = async () => {
     try{
       await axios.put(`/posts/${post._id}`, {username : user.username, title, desc});
-      window.location.reload();
+      setUpdateMode(false);
     }catch(err){}
   }
 
@@ -50,7 +50,7 @@ export default function SinglePost() {
         )}{
           updateMode ? <input type = "text" className = "singlePostTitleInput" value = {title}  onChange = {(e) => setTitle(e.target.value)}/> : (
             <h1 className = "singlePostTitle">
-              {post.title}
+              {title}
               {post.username === user?.username && (
               <div className="singlePostEdit">
                 <i className ="singlePostIcon fa-regular fa-pen-to-square" onClick={() => setUpdateMode(true)}></i>
@@ -70,10 +70,12 @@ export default function SinglePost() {
         </div>
         {updateMode ? (<textarea className = "singlePostDescInput" value = {desc} onChange = {(e) => setDesc(e.target.value)} />) :( 
           <p className = "singlePostDesc">
-            {post.desc}
+            {desc}
           </p>
         )}
-        <button className = "singlePostButton" onClick = {handleUpdate} >Update</button>     
+        {updateMode && (
+          <button className = "singlePostButton" onClick = {handleUpdate} >Update</button>     
+        )}
       </div>
     </div>
   )
