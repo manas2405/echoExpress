@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const path = require("path");
 
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
@@ -11,6 +12,7 @@ const multer = require("multer");
 
 dotenv.config();
 app.use(express.json());
+app.use("/images", express.static(path.join(__dirname,"/images")))
 
 mongoose.connect(process.env.MONGO_URL)
 .then(console.log("Connected to MongoDb"))

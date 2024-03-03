@@ -1,9 +1,16 @@
 import React from 'react'
 import "./topbar.css"
 import {Link} from "react-router-dom"
+import { Context } from '../../context/Context';
+import { useContext } from 'react';
 
 export default function TopBar() {
-    const user = false;
+    const { user, dispatch } = useContext(Context);
+
+    const handleLogout = () => {
+        dispatch({ type : "LOGOUT"});
+    };
+
     return <div className = "top" > 
         <div className = "topLeft">
             <i className="topIcon fa-brands fa-square-facebook"></i>
@@ -16,10 +23,8 @@ export default function TopBar() {
                 <li className = "topListItem"><Link to = "/" className = "link"> HOME </Link></li>
                 <li className = "topListItem"><Link to = "/" className = "link"> ABOUT </Link></li>
                 <li className = "topListItem"><Link to = "/" className = "link"> CONTACT </Link></li>
-                <li className = "topListItem"><Link to = "/" className = "link"> WRITE </Link></li>
-                <li className = "topListItem">
-                    {user && "LOGOUT"}
-                </li>
+                <li className = "topListItem"><Link to = "/write" className = "link"> WRITE </Link></li>
+                <li className = "topListItem" onClick = {handleLogout}>{user && "LOGOUT"}</li>
             </ul>
         </div>
         <div className = "topRight">
@@ -27,7 +32,7 @@ export default function TopBar() {
             user ? (
                 <img 
                 className = "topImg" 
-                src = "https://w0.peakpx.com/wallpaper/409/730/HD-wallpaper-the-ultimate-fusion-dbz-dragon-ball-dragon-ball-super-dragon-ball-z-gogeta-thumbnail.jpg" alt = "" />
+                src = {user.profilePic} alt = "" />
             ) : (
             <ul className = "topList">
                 <li className = "topListItem">
@@ -43,3 +48,5 @@ export default function TopBar() {
         </div>
     </div>
 }
+
+
