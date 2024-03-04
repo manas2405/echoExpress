@@ -4,23 +4,23 @@ const bcrypt = require("bcrypt");
 const Post = require("../models/Post");
 
 router.put("/:id", async (req, res) => {
-    if(req.body.userId === req.params.id){
-        if(req.body.password){
+    if (req.body.userId === req.params.id) {
+        if (req.body.password) {
             const salt = await bcrypt.genSalt(10);
             req.body.password = await bcrypt.hash(req.body.password, salt);
         }
-        try{
-            const updatedUser = await User.findByIdAndUpdate(req.params.id, {
-                $set: req.body,
-            }, {new : true});
+        try {
+            const updatedUser = await User.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
+            if (!updatedUser) {
+                return res.status(404).json("User not found");
+            }
             res.status(200).json(updatedUser);
+        } catch (err) {
+            console.error("Error updating user:", err);
+            res.status(500).json("An error occurred while updating the user");
         }
-        catch(err) {
-            res.send(500).json(err);
-        }
-    }
-    else{
-        res.status(401).json("you can update only your accont!");
+    } else {
+        res.status(401).json("You can update only your account!");
     }
 });
 

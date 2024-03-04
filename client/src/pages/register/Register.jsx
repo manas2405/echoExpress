@@ -24,6 +24,7 @@ export default function Register() {
       setError(true);
     }
   }
+
   return (
     <div className = "register">
         <span className = "registerTitle">Register</span>
@@ -39,7 +40,7 @@ export default function Register() {
         <button className = "registerLoginButton"> 
           <Link className = "link" to = "/login"> Login </Link> 
         </button>
-        {error && <span style = {{color : "red", marginTop : "10px"}}>Something went wrong </span>}
+        {error && <span style = {{color : "red", marginTop : "10px"}}> Username or Email already exists </span>}
     </div>
   );
 }
