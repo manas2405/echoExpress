@@ -26,9 +26,6 @@ export default function Settings() {
     };
 
     if(file) {
-        console.log(1);
-        console.log(file);
-        console.log(URL.createObjectURL(file));
         const data = new FormData();
         const filename = Date.now() + file.name;
         data.append("name", filename);
@@ -37,7 +34,7 @@ export default function Settings() {
         try{
             await axios.post("/upload", data);
           }catch(err){
-            console.log(1);
+            
           }
     }
     try{
@@ -48,6 +45,7 @@ export default function Settings() {
     catch(err) {
       dispatch({type : "UPDATE_FAILURE"});
     }
+    
   };
   return (
     <div className = "settings">
@@ -88,3 +86,4 @@ export default function Settings() {
     </div>
   )
 }
+

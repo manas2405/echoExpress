@@ -13,7 +13,7 @@ export default function SinglePost() {
   const [title, setTitle] = useState();
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
-  
+
   useEffect(() => {
     const getPost = async() => {
       const res = await axios.get("/posts/" + path);
