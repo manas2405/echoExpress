@@ -3,6 +3,7 @@ const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const path = require("path");
+const PORT = process.env.PORT || 5000;
 
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
@@ -44,7 +45,7 @@ app.use("/lama", (req, res) => {
     console.log("hey this is lama url");
 })
 
-app.listen("5000", () => {
+app.listen(PORT, () => {
     console.log("Backend is running");
 })
 
