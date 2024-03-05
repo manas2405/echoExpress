@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "set PATH=/opt/render/project/src/server/node_modules/.bin;%PATH% && nodemon index.js"
   },
   "author": "",
   "license": "ISC",
