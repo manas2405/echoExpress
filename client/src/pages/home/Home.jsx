@@ -1,30 +1,35 @@
-import React, { useEffect, useState } from 'react'
-import "./home.css"
-import Header from '../../components/header/Header'
-import Posts from '../../components/posts/Posts'
-import Sidebar from '../../components/sidebar/Sidebar'
+import React, { useEffect, useState } from 'react';
+import "./home.css";
+import Header from '../../components/header/Header';
+import Posts from '../../components/posts/Posts';
+import Sidebar from '../../components/sidebar/Sidebar';
 import axios from "axios";
-import { useLocation } from "react-router"
+import { useLocation } from "react-router";
+import { BACKEND_URL } from "../../apiPaths";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
-  const {search} = useLocation();
+  const { search } = useLocation();
 
   useEffect(() => {
-      const fetchPosts = async() => {
-      const res = await axios.get("/posts" + search);
-      setPosts(res.data);
-      console.log(res.data);
-    }
+    const fetchPosts = async () => {
+      try {
+        const res = await axios.get(BACKEND_URL + "/posts" + search);
+        setPosts(res.data);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
     fetchPosts();
-  },[search]);
+  }, [search]);
+
   return (
     <>
       <Header />
-      <div className = "home">
-          {/* <Posts posts = {posts}/> */}
-          <Sidebar />
+      <div className="home">
+        <Posts posts={posts} />
+        <Sidebar />
       </div>
     </>
-  )
+  );
 }
