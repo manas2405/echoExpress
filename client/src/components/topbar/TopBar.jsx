@@ -3,10 +3,10 @@ import "./topbar.css"
 import {Link} from "react-router-dom"
 import { Context } from '../../context/Context';
 import { useContext } from 'react';
+import { BACKEND_URL, PF } from '../../apiPaths';
 
 export default function TopBar() {
     const { user, dispatch } = useContext(Context);
-    const PF = "http://localhost:5000/images/";
 
     const handleLogout = () => {
         dispatch({ type : "LOGOUT"});

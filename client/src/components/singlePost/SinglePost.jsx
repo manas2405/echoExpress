@@ -3,13 +3,12 @@ import { useContext, useEffect, useState } from "react";
 import "./singlePost.css"
 import axios from "axios";
 import { Context } from "../../context/Context";
-import { BACKEND_URL } from "../../apiPaths";
+import { BACKEND_URL, PF } from "../../apiPaths";
 
 export default function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
-  const PF = "http://localhost:5000/images/";
   const { user } = useContext(Context);
   const [title, setTitle] = useState();
   const [desc, setDesc] = useState("");
