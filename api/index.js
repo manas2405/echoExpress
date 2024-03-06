@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const path = require("path");
 const PORT = process.env.PORT || 5000;
+const cors = require('cors');
 
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
@@ -12,6 +13,14 @@ const categoryRoute = require("./routes/categories");
 const multer = require("multer");
 
 dotenv.config();
+
+app.use(cors({
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+}));
+
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname,"/images")))
 
