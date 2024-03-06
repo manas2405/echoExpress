@@ -3,7 +3,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import { useContext, useState } from "react"; 
 import { Context } from "../../context/Context";
 import axios from "axios";
-import { PF } from "../../apiPaths";
+import { BACKEND_URL,PF } from "../../apiPaths";
 
 export default function Settings() {
   const [file, setFile] = useState(null);
@@ -24,7 +24,7 @@ export default function Settings() {
       return;
     }
 
-    // Prepare updated user data
+
     const updatedUser = {
       userId: user._id,
       username,
@@ -32,7 +32,7 @@ export default function Settings() {
       password,
     };
 
-    // Upload profile picture if selected
+ 
     if (file) {
       const data = new FormData();
       const filename = Date.now() + file.name;
@@ -40,19 +40,17 @@ export default function Settings() {
       data.append("file", file);
       updatedUser.profilePic = filename;
       try {
-        await axios.post("/upload", data);
+        await axios.post(`${BACKEND_URL}/upload`, data);
       } catch (err) {
         console.error("Error uploading profile picture:", err);
       }
     }
 
     try {
-      // Send update request to the server
-      const res = await axios.put(`/users/${user._id}`, updatedUser);
+      const res = await axios.put(`${BACKEND_URL}/users/${user._id}`, updatedUser);
       setSuccess(true); // Set success state
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
     } catch (err) {
-      // Handle errors from the server response
       if (err.response) {
         const { status, data } = err.response;
         if (status === 400) {

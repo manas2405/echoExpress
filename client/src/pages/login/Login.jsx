@@ -3,6 +3,7 @@ import "./login.css";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import axios from "axios";
+import { BACKEND_URL } from "../../apiPaths";
 
 export default function Login() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -15,7 +16,7 @@ export default function Login() {
     dispatch({ type: "LOGIN_START" });
 
     try {
-      const res = await axios.post("/auth/login", {
+      const res = await axios.post(`${BACKEND_URL}/auth/login`, {
         username: userRef.current.value,
         password: passwordRef.current.value,
       });

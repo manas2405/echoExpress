@@ -2,6 +2,7 @@ import "./register.css"
 import { useState} from "react"
 import {Link} from "react-router-dom"
 import axios from "axios"
+import { BACKEND_URL } from "../../apiPaths"
 
 export default function Register() {
   const [username, setUsername] = useState("")
@@ -14,7 +15,7 @@ export default function Register() {
     setError(false);
     
     try{
-      const res = await axios.post("/auth/register", {
+      const res = await axios.post(`${BACKEND_URL}/auth/register`, {
         username,
         email,
         password,});
