@@ -24,7 +24,7 @@ EchoExpress is a web platform designed for users to create, edit, and share blog
 Install my-project with npm
 
   ```bash
-    git clone <repository_url>
+    git clone https://github.com/aikshit123/EchoExpress.git
     cd EchoExpress
   ```
 
