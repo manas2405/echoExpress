@@ -24,8 +24,7 @@ EchoExpress is a web platform designed for users to create, edit, and share blog
 Install my-project with npm
 
   ```bash
-    git clone https://github.com/aikshit123/EchoExpress.git
-    cd EchoExpress
+    git clone https://github.com/manas2405/echoExpress.git
   ```
 
 ## Install dependencies
@@ -54,6 +53,4 @@ Install my-project with npm
     ```
 - Access the application in your web browser at http://localhost:3000.
 
-## Deployment link
-  https://echo-express.vercel.app/
 
