@@ -53,5 +53,8 @@ Install my-project with npm
     ```
 - Access the application in your web browser at http://localhost:3000.
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b06cba1493713daac1c7adcf97939bab9209e221
 
