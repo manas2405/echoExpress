@@ -5,11 +5,14 @@ export default function Header() {
   return (
     <div className = "header">
         <div className = "headerTitles">
-            <span className = "headerTitleSm"> Echo </span>
-            <span className = "headerTitleLg"> Express </span>
+            <span className = "headerTitleSm">  </span>
+            <span className = "headerTitleLg"> Echo Express </span>
         </div>
-        <img className = "headerImg" src = "https://www.jessleephotos.com/images/xl/typsp1-1740.jpg" alt = ""/>
-    </div>
+        <img
+        className="headerImg"
+        src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        alt=""
+      /></div>
   )
 }
 

@@ -4,52 +4,77 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: linear-gradient(
-        rgba(255, 255, 255, 0.2),
-        rgba(255, 255, 255, 0.2)),
-    url("https://media.istockphoto.com/id/869283118/photo/register-online.jpg?s=612x612&w=0&k=20&c=G9FeU0sYw0pJMr3FKVuCqRqgOnqcupdDpbq5sqdqMRc=");
-    background-size: cover;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
 }
 
 .registerTitle{
     font-size : 50px;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    text-shadow: 0px 2px 5px rgba(0,0,0,0.1);
 }
 
 .registerForm{
     margin-top: 20px;
     display: flex;
     flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
 }
 
 .registerForm > label {
     margin : 10px 0;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
 }
 
 .registerInput{
     padding : 10px;
     background-color: white;
     border : none;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+
+.registerInput:focus{
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
 }
 
 .registerButton{
     margin-top : 20px;
     cursor: pointer;
-    background-color: teal;
+    background-color: #4CAF50;
     border: none;
     color: white;
     border-radius: 30px;
     padding: 10px;
     margin-bottom: 1px;
+    transition: all 0.3s ease;
+}
+
+.registerButton:hover{
+    background-color: #3e8e41;
 }
 
 .registerLoginButton{
     position: absolute;
     top: 60px;
     right: 20px;
-    background-color: lightcoral;
+    background-color: #f44336;
     cursor: pointer;
     border: none;
     padding: 10px;
     color: white;
     border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.registerLoginButton:hover{
+    background-color: #d32f2f;
 }

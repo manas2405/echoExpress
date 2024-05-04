@@ -1,4 +1,4 @@
-.header{
+/* .header{
     margin-top: 60px;
 }
 
@@ -27,4 +27,43 @@
     height : 100%;
     object-fit: cover;
 }
+ */
+ .header{
+    background-image: linear-gradient(to bottom, #f5f5f5, #fff); /* Add a subtle gradient background */
+    padding: 0px 0; /* Add some padding to create space */
+}
 
+.headerTitles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Lora", serif;
+    color:#333;
+    text-shadow: 0px 2px 5px rgba(0,0,0,0.1); /* Add a subtle text shadow */
+}
+
+.headerTitleSm{
+    position: absolute;
+    top : 18%;
+    font-size: 20px;
+    font-weight: bold; /* Make the font bold */
+    color: #666; /* Darken the text color */
+}
+
+.headerTitleLg{
+    position: absolute;
+    top: 20%;
+    font-size: 80px;
+    font-weight: bold; /* Make the font bold */
+    color: #333; /* Darken the text color */
+    text-shadow: 0px 5px 10px rgba(0,0,0,0.2); /* Add a more prominent text shadow */
+    z-index: 1;
+}
+
+.headerImg{
+    width : 100%;
+    height : 100%;
+    object-fit: cover;
+    filter: brightness(0.8); /* Reduce the brightness of the image to make the text more readable */
+    border-radius: 10px; /* Add a subtle border radius */
+}

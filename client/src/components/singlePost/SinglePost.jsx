@@ -10,7 +10,7 @@ export default function SinglePost() {
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
   const { user } = useContext(Context);
-  const [title, setTitle] = useState();
+  const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
 
@@ -34,7 +34,11 @@ export default function SinglePost() {
 
   const handleUpdate = async () => {
     try{
-      await axios.put(`${BACKEND_URL}/posts/${post._id}`, {username : user.username, title, desc});
+      await axios.put(`${BACKEND_URL}/posts/${post._id}`, 
+      {username : user.username,
+         title,
+         desc
+      });
       setUpdateMode(false);
     }catch(err){}
   }
@@ -48,7 +52,7 @@ export default function SinglePost() {
             className = "singlePostImg"
           />
         )}{
-          updateMode ? <input type = "text" className = "singlePostTitleInput" value = {title}  onChange = {(e) => setTitle(e.target.value)}/> : (
+          updateMode ? (<input type = "text" className = "singlePostTitleInput" value = {title}  onChange = {(e) => setTitle(e.target.value)}/> ): (
             <h1 className = "singlePostTitle">
               {title}
               {post.username === user?.username && (

@@ -22,6 +22,10 @@ app.use(cors({
 }));
 
 app.use(express.json());
+
+app.get("/",(req, res)=>{
+    res.send("Server Working")
+})
 app.use("/images", express.static(path.join(__dirname,"/images")))
 
 mongoose.connect(process.env.MONGODB_URL,{

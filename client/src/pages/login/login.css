@@ -1,4 +1,4 @@
-.login {
+/* .login {
     align-items: center;
     height: calc(100vh - 50px);
     display: flex;
@@ -59,4 +59,92 @@
     padding: 10px;
     color: white;
     border-radius: 10px;
+} */
+.login {
+    align-items: center;
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(
+        rgba(184, 185, 184, 0.2),
+        rgba(239, 246, 239, 0.2));
+    /* url("https://img.lovepik.com/bg/20240205/Nature-inspired-Handwriting-in-an-Open-Notebook-with-Trees-in_3174777_wh860.jpg!/fw/860"); */
+    background-size: cover;
+    border-radius: 10px; /* Add a subtle border radius */
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.1); /* Add a subtle shadow */
+}
+
+.loginTitle{
+        font-size : 30px; /* Change the font size */
+        font-family: Arial, sans-serif; /* Change the font */
+        text-shadow: 0px 2px 5px rgba(0,0,0,0.1); /* Add a subtle text shadow */
+    }
+
+
+.loginForm{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: white; /* Add a white background color */
+    padding: 20px;
+    border-radius: 10px; /* Add a subtle border radius */
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.1); /* Add a subtle shadow */
+}
+
+.loginForm > label {
+    margin : 10px 0;
+    font-size: 16px; /* Reduce the font size */
+}
+
+.loginInput{
+    padding : 10px;
+    background-color: white;
+    border : none;
+    cursor: text;
+    border-radius: 10px; /* Add a subtle border radius */
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1); /* Add a subtle shadow */
+}
+
+.loginInput:focus{
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.1); /* Add a subtle shadow on focus */
+}
+
+.loginButton{
+    margin-top : 20px;
+    cursor: pointer;
+    background-color: lightcoral;
+    border: none;
+    color: white;
+    border-radius: 30px;
+    padding: 10px;
+    margin-bottom: 1px;
+    transition: all 0.3s ease; /* Add a smooth transition */
+}
+
+.loginButton:disabled{
+    cursor : not-allowed;
+    background-color : rgb(252, 173, 173);
+}
+
+.loginButton:hover{
+    background-color: #ff6961; /* Change background color on hover */
+}
+
+.loginRegisterButton{
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color:rgb(35, 240, 69);
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease; /* Add a smooth transition */
+}
+
+.loginRegisterButton:hover{
+    background-color: #008080; /* Change background color on hover */
 }

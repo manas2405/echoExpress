@@ -27,7 +27,7 @@ export default function Write() {
                 await axios.post(`${BACKEND_URL}/upload`, data);
             }
             catch(err){
-                
+               
             }
         }
         try{

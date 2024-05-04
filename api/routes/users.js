@@ -42,7 +42,7 @@ router.delete("/:id", async (req, res) => {
         }
     }
     else{
-        res.status(401).json("you can delete only your accont!");
+        res.status(401).json("you can delete only your account!");
     }
 });
 module.exports = router;
